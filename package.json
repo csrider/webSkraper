@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/csr19us/webSkraper/issues"
   },
-  "homepage": "https://github.com/csr19us/webSkraper#readme"
+  "homepage": "https://github.com/csr19us/webSkraper#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.1"
+  }
 }
