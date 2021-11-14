@@ -10,8 +10,19 @@ const app = express()
 
 axios(url)
     .then((result) => {
-        const html = result.data
-        console.log(html)
+        const rawHtml = result.data
+        const scrapedHtml = cheerio.load(rawHtml)
+        const articles = []
+
+        scrapedHtml('.fc-item__title', rawHtml).each(function() {
+            const title = scrapedHtml(this).text()
+            const url = scrapedHtml(this).find('a').attr('href')
+            articles.push({
+                title,
+                url
+            })
+        })
+        console.log(articles)
     }).catch((err) => {
         console.log(err)
     });
