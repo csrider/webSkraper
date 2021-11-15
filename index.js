@@ -1,12 +1,14 @@
 const axios = require('axios')      //HTTP lib
 const cheerio = require('cheerio')  //parser lib
 const express = require('express')  //rooting lib
+const cors = require('cors')
 
 const PORT = 8000
 const url = 'https://www.theguardian.com/uk'
 
 // Provide our web interface
 const app = express()
+app.use(cors())
 
 app.get('/', (req, res) => {
     res.json('This is the skraper')
